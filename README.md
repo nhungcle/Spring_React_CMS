@@ -1,4 +1,4 @@
-# Sprint React Framework — Backend
+# Spring React Framework — Backend
 
 A reusable Spring Boot backend framework for the React dashboard frontend. Provides JWT authentication, role-based authorization, dynamic CRUD operations, WebSocket support, and automatic audit trails.
 
