@@ -1,0 +1,35 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+    date-format: "yyyy-MM-dd'T'HH:mm:ss.SSSXXX"
+    time-zone: UTC
+
+app:
+  jwt:
+    # Base64-encoded 256-bit secret key for HMAC-SHA256
+    # IMPORTANT: Change this in production!
+    secret: dGhpcy1pcy1hLXNlY3JldC1rZXktZm9yLWp3dC10b2tlbi1nZW5lcmF0aW9uLWNoYW5nZS1pbi1wcm9k
+    # Token expiration: 4 hours (in milliseconds)
+    expiration-ms: 14400000
+  crud:
+    # Whitelist of allowed table names for dynamic CRUD.
+    # Leave empty to allow all tables (not recommended for production).
+    allowed-tables:
+      - example_table
+      - site_setting
+      - cms_template
+      - cms_page
+      - cms_file
+      - main_menu_item
+      - admin_menu_item
+      - contact_submission
+  upload:
+    dir: ./uploads
+    max-size: 10MB
+    allowed-types: image/png,image/jpeg,image/gif,image/svg+xml,image/webp

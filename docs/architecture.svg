@@ -1,0 +1,242 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 820" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="112%">
+      <feDropShadow dx="1" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#22c55e"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#f97316"/>
+    </marker>
+    <linearGradient id="headerGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1100" height="820" rx="12" fill="#f8fafc"/>
+
+  <!-- Title bar -->
+  <rect width="1100" height="52" rx="12" fill="url(#headerGrad)"/>
+  <rect y="40" width="1100" height="12" fill="url(#headerGrad)"/>
+  <text x="550" y="33" text-anchor="middle" fill="white" font-size="18" font-weight="700">Sprint React Framework — Architecture</text>
+
+  <!-- ===== BROWSER / FRONTEND ===== -->
+  <rect x="30" y="72" width="240" height="140" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="30" y="72" width="240" height="30" rx="10" fill="#3b82f6"/>
+  <rect x="30" y="92" width="240" height="10" fill="#3b82f6"/>
+  <text x="150" y="93" text-anchor="middle" fill="white" font-size="13" font-weight="600">React Frontend</text>
+  <text x="45" y="125" fill="#1e40af" font-size="11">ApiService (fetch + credentials)</text>
+  <text x="45" y="142" fill="#1e40af" font-size="11">AuthService (login/logout)</text>
+  <text x="45" y="159" fill="#1e40af" font-size="11">DynamicSQLDataGrid (CRUD)</text>
+  <text x="45" y="176" fill="#1e40af" font-size="11">useWebSocket (WS client)</text>
+  <text x="45" y="193" fill="#64748b" font-size="10">localStorage + HttpOnly cookie</text>
+
+  <!-- Arrow: Frontend -> Security Filter -->
+  <line x1="270" y1="142" x2="350" y2="142" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <text x="295" y="135" fill="#3b82f6" font-size="9" text-anchor="middle">HTTP</text>
+  <text x="295" y="155" fill="#3b82f6" font-size="9" text-anchor="middle">+ cookie</text>
+
+  <!-- ===== SPRING SECURITY FILTER ===== -->
+  <rect x="360" y="72" width="260" height="140" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="360" y="72" width="260" height="30" rx="10" fill="#f59e0b"/>
+  <rect x="360" y="92" width="260" height="10" fill="#f59e0b"/>
+  <text x="490" y="93" text-anchor="middle" fill="white" font-size="13" font-weight="600">Spring Security</text>
+  <text x="375" y="125" fill="#92400e" font-size="11" font-weight="600">SecurityConfig</text>
+  <text x="375" y="142" fill="#92400e" font-size="11">  Stateless | No CSRF | CORS</text>
+  <text x="375" y="162" fill="#92400e" font-size="11" font-weight="600">JwtAuthenticationFilter</text>
+  <text x="375" y="179" fill="#92400e" font-size="11">  Reads "token" cookie</text>
+  <text x="375" y="196" fill="#92400e" font-size="11">  Validates JWT, sets SecurityContext</text>
+
+  <!-- Arrow: Security -> Controllers -->
+  <line x1="620" y1="142" x2="700" y2="142" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="660" y="135" fill="#64748b" font-size="9" text-anchor="middle">authenticated</text>
+
+  <!-- ===== CONTROLLERS ===== -->
+  <rect x="710" y="72" width="360" height="140" rx="10" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="710" y="72" width="360" height="30" rx="10" fill="#22c55e"/>
+  <rect x="710" y="92" width="360" height="10" fill="#22c55e"/>
+  <text x="890" y="93" text-anchor="middle" fill="white" font-size="13" font-weight="600">REST Controllers</text>
+
+  <!-- Auth Controller box -->
+  <rect x="722" y="110" width="108" height="90" rx="6" fill="white" stroke="#86efac" stroke-width="1"/>
+  <text x="776" y="127" text-anchor="middle" fill="#166534" font-size="10" font-weight="600">AuthController</text>
+  <text x="728" y="142" fill="#166534" font-size="9">POST /auth</text>
+  <text x="728" y="154" fill="#166534" font-size="9">GET  /auth</text>
+  <text x="728" y="166" fill="#166534" font-size="9">POST /auth/logout</text>
+  <text x="728" y="178" fill="#166534" font-size="9">POST /auth/permission</text>
+
+  <!-- Menu Controller box -->
+  <rect x="838" y="110" width="108" height="90" rx="6" fill="white" stroke="#86efac" stroke-width="1"/>
+  <text x="892" y="127" text-anchor="middle" fill="#166534" font-size="10" font-weight="600">MenuController</text>
+  <text x="844" y="145" fill="#166534" font-size="9">GET /menu</text>
+  <text x="844" y="160" fill="#166534" font-size="9">GET /adminMenu</text>
+
+  <!-- CRUD Controller box -->
+  <rect x="954" y="110" width="108" height="90" rx="6" fill="white" stroke="#86efac" stroke-width="1"/>
+  <text x="1008" y="127" text-anchor="middle" fill="#166534" font-size="10" font-weight="600">CrudController</text>
+  <text x="960" y="142" fill="#166534" font-size="9">GET    /{table}</text>
+  <text x="960" y="154" fill="#166534" font-size="9">GET    /{table}/{id}</text>
+  <text x="960" y="166" fill="#166534" font-size="9">POST   /{table}</text>
+  <text x="960" y="178" fill="#166534" font-size="9">PUT    /{table}/{id}</text>
+  <text x="960" y="190" fill="#166534" font-size="9">DELETE /{table}/{id}</text>
+
+  <!-- ===== JWT PROVIDER (side) ===== -->
+  <rect x="360" y="240" width="160" height="80" rx="10" fill="#fdf4ff" stroke="#a855f7" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="360" y="240" width="160" height="26" rx="10" fill="#a855f7"/>
+  <rect x="360" y="258" width="160" height="8" fill="#a855f7"/>
+  <text x="440" y="258" text-anchor="middle" fill="white" font-size="12" font-weight="600">JwtTokenProvider</text>
+  <text x="372" y="283" fill="#7e22ce" font-size="10">generateToken(User)</text>
+  <text x="372" y="297" fill="#7e22ce" font-size="10">validateToken(String)</text>
+  <text x="372" y="311" fill="#7e22ce" font-size="10">getUserEmail / getRoles</text>
+
+  <!-- Arrow: Security <-> JWT -->
+  <line x1="490" y1="212" x2="490" y2="238" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrow)"/>
+
+  <!-- ===== SERVICE LAYER ===== -->
+  <rect x="30" y="350" width="1040" height="140" rx="10" fill="#faf5ff" stroke="#a855f7" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="30" y="350" width="1040" height="30" rx="10" fill="#7c3aed"/>
+  <rect x="30" y="370" width="1040" height="10" fill="#7c3aed"/>
+  <text x="550" y="371" text-anchor="middle" fill="white" font-size="13" font-weight="600">Service Layer</text>
+
+  <!-- AuthService -->
+  <rect x="48" y="392" width="180" height="82" rx="6" fill="white" stroke="#c4b5fd" stroke-width="1"/>
+  <text x="138" y="410" text-anchor="middle" fill="#5b21b6" font-size="11" font-weight="600">AuthService</text>
+  <text x="56" y="428" fill="#5b21b6" font-size="10">authenticate(email, pass)</text>
+  <text x="56" y="443" fill="#5b21b6" font-size="10">getUserByEmail(email)</text>
+  <text x="56" y="462" fill="#7c3aed" font-size="9" font-style="italic">Uses: UserRepository</text>
+
+  <!-- MenuService -->
+  <rect x="248" y="392" width="210" height="82" rx="6" fill="white" stroke="#c4b5fd" stroke-width="1"/>
+  <text x="353" y="410" text-anchor="middle" fill="#5b21b6" font-size="11" font-weight="600">MenuService</text>
+  <text x="256" y="428" fill="#5b21b6" font-size="10">getMainMenu(roles)</text>
+  <text x="256" y="443" fill="#5b21b6" font-size="10">getAdminMenu(roles)</text>
+  <text x="256" y="462" fill="#7c3aed" font-size="9" font-style="italic">Builds hierarchical tree, filters by role</text>
+
+  <!-- DynamicCrudService -->
+  <rect x="478" y="392" width="290" height="82" rx="6" fill="white" stroke="#c4b5fd" stroke-width="1"/>
+  <text x="623" y="410" text-anchor="middle" fill="#5b21b6" font-size="11" font-weight="600">DynamicCrudService</text>
+  <text x="486" y="428" fill="#5b21b6" font-size="10">findAll / findById / create / update / delete</text>
+  <text x="486" y="443" fill="#5b21b6" font-size="10">associateSecondary (many-to-many)</text>
+  <text x="486" y="462" fill="#7c3aed" font-size="9" font-style="italic">JdbcTemplate + table whitelist + audit fields</text>
+
+  <!-- CustomUserDetailsService -->
+  <rect x="788" y="392" width="270" height="82" rx="6" fill="white" stroke="#c4b5fd" stroke-width="1"/>
+  <text x="923" y="410" text-anchor="middle" fill="#5b21b6" font-size="11" font-weight="600">CustomUserDetailsService</text>
+  <text x="796" y="428" fill="#5b21b6" font-size="10">loadUserByUsername(email)</text>
+  <text x="796" y="443" fill="#5b21b6" font-size="10">Spring Security UserDetailsService</text>
+  <text x="796" y="462" fill="#7c3aed" font-size="9" font-style="italic">Maps User to Spring Security principal</text>
+
+  <!-- Arrows: Controllers -> Services -->
+  <line x1="776" y1="200" x2="138" y2="390" stroke="#64748b" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <line x1="892" y1="200" x2="353" y2="390" stroke="#64748b" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <line x1="1008" y1="200" x2="623" y2="390" stroke="#64748b" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+
+  <!-- ===== REPOSITORY / DATA LAYER ===== -->
+  <rect x="30" y="520" width="730" height="100" rx="10" fill="#fff1f2" stroke="#f43f5e" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="30" y="520" width="730" height="28" rx="10" fill="#e11d48"/>
+  <rect x="30" y="540" width="730" height="8" fill="#e11d48"/>
+  <text x="395" y="540" text-anchor="middle" fill="white" font-size="13" font-weight="600">Repository Layer (Spring Data JPA)</text>
+
+  <text x="55" y="572" fill="#9f1239" font-size="11" font-weight="600">UserRepository</text>
+  <text x="55" y="587" fill="#9f1239" font-size="10">findByEmail, findByUserName</text>
+
+  <text x="230" y="572" fill="#9f1239" font-size="11" font-weight="600">RoleRepository</text>
+  <text x="230" y="587" fill="#9f1239" font-size="10">findByName</text>
+
+  <text x="395" y="572" fill="#9f1239" font-size="11" font-weight="600">MainMenuRepository</text>
+  <text x="395" y="587" fill="#9f1239" font-size="10">findAllByOrderByOrderAsc</text>
+
+  <text x="590" y="572" fill="#9f1239" font-size="11" font-weight="600">AdminMenuRepository</text>
+  <text x="590" y="587" fill="#9f1239" font-size="10">findAllByOrderByOrderAsc</text>
+
+  <text x="55" y="610" fill="#be123c" font-size="10" font-style="italic">DynamicCrudService uses JdbcTemplate directly (no JPA repo — dynamic table names)</text>
+
+  <!-- Arrow: Services -> Repos -->
+  <line x1="550" y1="490" x2="395" y2="518" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ===== DATABASE ===== -->
+  <rect x="30" y="645" width="730" height="155" rx="10" fill="#f1f5f9" stroke="#475569" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="30" y="645" width="730" height="28" rx="10" fill="#475569"/>
+  <rect x="30" y="665" width="730" height="8" fill="#475569"/>
+  <text x="395" y="665" text-anchor="middle" fill="white" font-size="13" font-weight="600">Database (H2 dev / MySQL prod)</text>
+
+  <!-- Table icons -->
+  <rect x="48" y="685" width="120" height="50" rx="4" fill="white" stroke="#94a3b8" stroke-width="1"/>
+  <text x="108" y="703" text-anchor="middle" fill="#334155" font-size="10" font-weight="600">app_user</text>
+  <text x="108" y="718" text-anchor="middle" fill="#64748b" font-size="9">id, user_name, email</text>
+  <text x="108" y="730" text-anchor="middle" fill="#64748b" font-size="9">password, names</text>
+
+  <rect x="183" y="685" width="100" height="50" rx="4" fill="white" stroke="#94a3b8" stroke-width="1"/>
+  <text x="233" y="703" text-anchor="middle" fill="#334155" font-size="10" font-weight="600">app_role</text>
+  <text x="233" y="718" text-anchor="middle" fill="#64748b" font-size="9">id, name</text>
+  <text x="233" y="730" text-anchor="middle" fill="#64748b" font-size="9">description</text>
+
+  <rect x="298" y="685" width="100" height="50" rx="4" fill="white" stroke="#94a3b8" stroke-width="1"/>
+  <text x="348" y="703" text-anchor="middle" fill="#334155" font-size="10" font-weight="600">user_role</text>
+  <text x="348" y="718" text-anchor="middle" fill="#64748b" font-size="9">user_id (FK)</text>
+  <text x="348" y="730" text-anchor="middle" fill="#64748b" font-size="9">role_id (FK)</text>
+
+  <rect x="413" y="685" width="130" height="50" rx="4" fill="white" stroke="#94a3b8" stroke-width="1"/>
+  <text x="478" y="703" text-anchor="middle" fill="#334155" font-size="10" font-weight="600">main_menu_item</text>
+  <text x="478" y="718" text-anchor="middle" fill="#64748b" font-size="9">id, name, link, icon</text>
+  <text x="478" y="730" text-anchor="middle" fill="#64748b" font-size="9">parent_id, roles</text>
+
+  <rect x="558" y="685" width="130" height="50" rx="4" fill="white" stroke="#94a3b8" stroke-width="1"/>
+  <text x="623" y="703" text-anchor="middle" fill="#334155" font-size="10" font-weight="600">admin_menu_item</text>
+  <text x="623" y="718" text-anchor="middle" fill="#64748b" font-size="9">id, name, link, icon</text>
+  <text x="623" y="730" text-anchor="middle" fill="#64748b" font-size="9">parent_id, roles</text>
+
+  <!-- Dynamic tables -->
+  <rect x="48" y="745" width="640" height="42" rx="4" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="368" y="763" text-anchor="middle" fill="#0369a1" font-size="11" font-weight="600">Dynamic CRUD Tables (via JdbcTemplate)</text>
+  <text x="368" y="779" text-anchor="middle" fill="#0369a1" font-size="10">example_table, [your_tables...] — with optional audit columns: created_at, updated_at, created_by, updated_by</text>
+
+  <!-- Arrow: Repos -> DB -->
+  <line x1="395" y1="620" x2="395" y2="643" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ===== WEBSOCKET (right side) ===== -->
+  <rect x="790" y="520" width="280" height="280" rx="10" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="790" y="520" width="280" height="28" rx="10" fill="#059669"/>
+  <rect x="790" y="540" width="280" height="8" fill="#059669"/>
+  <text x="930" y="540" text-anchor="middle" fill="white" font-size="13" font-weight="600">WebSocket (ws://.../ ws)</text>
+
+  <rect x="805" y="560" width="250" height="65" rx="6" fill="white" stroke="#6ee7b7" stroke-width="1"/>
+  <text x="930" y="578" text-anchor="middle" fill="#065f46" font-size="11" font-weight="600">FrameworkWebSocketHandler</text>
+  <text x="812" y="596" fill="#065f46" font-size="10">handleTextMessage(session, msg)</text>
+  <text x="812" y="611" fill="#065f46" font-size="10">processMessage(cmd, data) - override me</text>
+
+  <rect x="805" y="635" width="250" height="55" rx="6" fill="white" stroke="#6ee7b7" stroke-width="1"/>
+  <text x="930" y="653" text-anchor="middle" fill="#065f46" font-size="11" font-weight="600">WebSocketSessionManager</text>
+  <text x="812" y="671" fill="#065f46" font-size="10">ConcurrentHashMap sessions</text>
+  <text x="812" y="685" fill="#065f46" font-size="10">broadcast() / sendToSession()</text>
+
+  <text x="812" y="715" fill="#065f46" font-size="10" font-weight="600">Message Format:</text>
+  <rect x="805" y="722" width="250" height="35" rx="4" fill="#d1fae5" stroke="#6ee7b7" stroke-width="1"/>
+  <text x="930" y="744" text-anchor="middle" fill="#065f46" font-size="11" font-family="Consolas, monospace">{ cmd, data, success }</text>
+
+  <text x="930" y="785" text-anchor="middle" fill="#047857" font-size="10">Raw WS (no STOMP, no SockJS)</text>
+
+  <!-- Arrow: Frontend -> WebSocket -->
+  <line x1="150" y1="212" x2="150" y2="260" stroke="#10b981" stroke-width="1.5"/>
+  <line x1="150" y1="260" x2="788" y2="590" stroke="#10b981" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <text x="350" y="380" fill="#10b981" font-size="9" transform="rotate(-24, 350, 380)">WebSocket (ws://localhost:8080/ws)</text>
+
+  <!-- ===== EXCEPTION HANDLING (bottom right corner) ===== -->
+  <rect x="790" y="245" width="280" height="80" rx="10" fill="#fff7ed" stroke="#f97316" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="790" y="245" width="280" height="26" rx="10" fill="#f97316"/>
+  <rect x="790" y="263" width="280" height="8" fill="#f97316"/>
+  <text x="930" y="263" text-anchor="middle" fill="white" font-size="12" font-weight="600">GlobalExceptionHandler</text>
+  <text x="800" y="290" fill="#9a3412" font-size="10">BadCredentials -> 401 {"error":"Unauthorized"}</text>
+  <text x="800" y="305" fill="#9a3412" font-size="10">IllegalArgument -> 400 | NotFound -> 404</text>
+  <text x="800" y="320" fill="#9a3412" font-size="10">Exception -> 500 {"error":"Server Error"}</text>
+
+</svg>
